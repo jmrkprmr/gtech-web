@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>try { if (sessionStorage.getItem("gtechnology-loader-seen") === "1") document.documentElement.classList.add("site-loader-seen"); } catch (_error) {}</script>
+    <meta name="theme-color" content="#151515" />
+    <title>Clients | G Technology</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+      :root {
+        --bg: #f3f3f1;
+        --text: #111;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Manrope', 'Segoe UI', sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        padding-top: 90px;
+      }
+
+      .topbar {
+        position: fixed;
+        z-index: 10000;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        min-height: 90px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 0 16px 0 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+        background: linear-gradient(105deg, #151515 0%, #1b1b1b 55%, #111 100%);
+        color: #f7f7f7;
+      }
+
+      .brand {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 12px;
+        color: #f7f7f7;
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .brand-mark {
+        display: block;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+      }
+
+      .nav {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(22px, 2vw, 34px);
+        font-size: clamp(0.9rem, 1.15vw, 1.375rem);
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .nav a {
+        position: relative;
+        overflow: hidden;
+        padding: 11px 12px;
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.88);
+        text-decoration: none;
+        outline: none;
+        transition:
+          color 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+          box-shadow 0.2s ease,
+          transform 0.25s ease;
+      }
+
+      .nav a::before {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        border-radius: inherit;
+        background: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0 7 C25 0 25 14 50 7 S75 0 100 7 V12 H0Z' fill='%23fff'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        background-size: 100px 12px;
+        content: "";
+        transform: translateY(100%);
+        transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .nav a > span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .nav a:hover::before,
+      .nav a:focus-visible::before {
+        transform: translateY(0);
+        animation: menu-wave 2s linear infinite;
+      }
+
+      .nav a[aria-current="page"]::before {
+        transform: translateY(0);
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible,
+      .nav a[aria-current="page"] {
+        color: #111;
+        box-shadow: 0 3px 13px rgba(255, 255, 255, 0.35);
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        transform: translateY(-4px);
+      }
+
+      @keyframes menu-wave {
+        to {
+          background-position: 100px 0;
+        }
+      }
+
+      .cta-top {
+        position: relative;
+        display: inline-flex;
+        flex: 0 0 auto;
+        width: 52px;
+        height: 52px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border: none;
+        border-radius: 999px;
+        background: #1019ed;
+        color: #fff;
+        text-decoration: none;
+        transition: transform 0.25s ease, box-shadow 0.2s ease;
+      }
+
+      .cta-top::before {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        border-radius: inherit;
+        background: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0 7 C25 0 25 14 50 7 S75 0 100 7 V12 H0Z' fill='%23fff'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        background-size: 100px 12px;
+        content: "";
+        transform: translateY(100%);
+        transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .cta-top:hover::before,
+      .cta-top:focus-visible::before {
+        transform: translateY(0);
+        animation: menu-wave 2s linear infinite;
+      }
+
+      .cta-top:hover,
+      .cta-top:focus-visible {
+        transform: translateY(-4px);
+        box-shadow: 0 3px 13px rgba(255, 255, 255, 0.35);
+      }
+
+      .facebook-icon {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        width: 33px;
+        height: 33px;
+        place-items: center;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 2.1rem;
+        font-weight: 800;
+        line-height: 1;
+        text-transform: lowercase;
+        transform: translateY(2px);
+        transition: color 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .cta-top:hover .facebook-icon,
+      .cta-top:focus-visible .facebook-icon {
+        color: #1877f2;
+      }
+
+      @media (max-width: 980px) {
+        .topbar {
+          gap: 18px;
+        }
+
+        .nav {
+          gap: 16px;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          padding-top: 0;
+        }
+
+        .topbar {
+          position: sticky;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding: 12px 16px;
+          gap: 12px;
+        }
+
+        .brand {
+          gap: 7px;
+          font-size: 1rem;
+        }
+
+        .brand-mark {
+          width: 42px;
+          height: 42px;
+        }
+
+        .cta-top {
+          width: 42px;
+          height: 42px;
+        }
+
+        .facebook-icon {
+          width: 29px;
+          height: 29px;
+          font-size: 1.4rem;
+        }
+
+        .nav {
+          order: 3;
+          width: 100%;
+          flex: 0 0 100%;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 10px 20px;
+          padding: 6px 0 2px;
+          font-size: 0.82rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .nav a,
+        .nav a::before,
+        .cta-top,
+        .cta-top::before,
+        .facebook-icon {
+          transition: none;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible,
+        .cta-top:hover,
+        .cta-top:focus-visible {
+          transform: none;
+        }
+
+        .nav a:hover::before,
+        .nav a:focus-visible::before,
+        .cta-top:hover::before,
+        .cta-top:focus-visible::before {
+          animation: none;
+        }
+      }
+      .topbar {
+        min-height: 80px;
+        gap: clamp(12px, 2vw, 28px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.38);
+        box-shadow: 0 8px 24px rgba(20, 30, 25, 0.06);
+        -webkit-backdrop-filter: blur(18px) saturate(150%);
+        backdrop-filter: blur(18px) saturate(150%);
+        color: var(--text);
+      }
+
+      .brand {
+        color: var(--text);
+      }
+
+      .nav {
+        flex: 0 1 auto;
+        gap: 0;
+        max-width: calc(100% - 180px);
+        overflow-x: auto;
+        padding: 0 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.82);
+        background: rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 24px rgba(31, 80, 55, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+        -webkit-backdrop-filter: blur(16px) saturate(160%);
+        backdrop-filter: blur(16px) saturate(160%);
+        font-size: 0.875rem;
+        letter-spacing: 0;
+        text-transform: none;
+        scrollbar-width: none;
+      }
+
+      .nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav a {
+        flex: 0 0 auto;
+        padding: 12px 11px;
+        border-radius: 999px;
+        color: #111;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .nav a::before {
+        display: none;
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        color: #111;
+        background: rgba(0, 0, 0, 0.06);
+        box-shadow: none;
+        transform: none;
+      }
+
+      .nav a:focus-visible {
+        outline: 2px solid #245d40;
+        outline-offset: 2px;
+      }
+
+      .nav a[aria-current="page"] {
+        background: rgba(255, 255, 255, 0.46);
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.75);
+      }
+
+      @media (max-width: 760px) {
+        .topbar {
+          min-height: 0;
+        }
+
+        .nav {
+          flex: 0 0 100%;
+          max-width: 100%;
+          justify-content: flex-start;
+          flex-wrap: nowrap;
+          gap: 0;
+          padding: 0 8px;
+          font-size: 0.82rem;
+        }
+
+        .nav a {
+          padding: 10px 11px;
+        }
+      }
+
+      .clients-section {
+        min-height: calc(100vh - 112px);
+        padding: 36px clamp(18px, 4vw, 56px) 48px;
+        background: #dcffe8;
+      }
+
+      .industries-section {
+        width: min(100%, 1720px);
+        margin: 0 auto 36px;
+      }
+
+      .industries-heading {
+        margin: 0 0 30px;
+        color: #111;
+        font-size: clamp(1.8rem, 3vw, 3rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        text-align: center;
+      }
+
+      .industries-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: clamp(12px, 1.6vw, 30px);
+      }
+
+      .industry-card {
+        display: flex;
+        min-height: 124px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        border-radius: 16px;
+        background: linear-gradient(110deg, #25a878 0%, #777 100%);
+        color: #fff;
+        text-align: center;
+      }
+
+      .industry-count {
+        font-size: clamp(2rem, 3vw, 3rem);
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .industry-name {
+        font-size: clamp(0.9rem, 1.2vw, 1.15rem);
+      }
+
+      .region-trust {
+        display: grid;
+        width: min(100%, 1720px);
+        margin: 0 auto 36px;
+        grid-template-columns: minmax(250px, 1.65fr) repeat(4, minmax(0, 1fr));
+        align-items: center;
+        gap: clamp(12px, 1vw, 20px);
+      }
+
+      .region-trust-heading {
+        display: grid;
+        min-height: 100%;
+        margin: 0;
+        padding-right: clamp(16px, 2vw, 36px);
+        place-items: center;
+        border-right: 1px solid #12392e;
+        color: #438e6e;
+        font-size: clamp(1.7rem, 3vw, 3.6rem);
+        font-weight: 400;
+        line-height: 1.35;
+        text-align: center;
+      }
+
+      .region-photos {
+        display: contents;
+      }
+
+      .region-photo-box {
+        width: 100%;
+        max-height: 400px;
+        aspect-ratio: 0.72;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 16px;
+        background: rgba(18, 57, 46, 0.1);
+      }
+
+      .region-photo {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .client-logo-grid {
+        display: grid;
+        width: min(100%, 1180px);
+        margin: 0 auto;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 8px clamp(12px, 2vw, 24px);
+      }
+
+      .client-logo {
+        display: grid;
+        min-width: 0;
+        min-height: 88px;
+        margin: 0;
+        place-items: center;
+        outline: none;
+      }
+
+      .client-logo img {
+        display: block;
+        width: min(100%, 128px);
+        height: 72px;
+        object-fit: contain;
+        filter: grayscale(1);
+        transform: scale(1);
+        transition:
+          filter 0.3s ease,
+          transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .client-logo:hover img,
+      .client-logo:focus-visible img {
+        filter: grayscale(0);
+        transform: scale(1.1);
+      }
+
+      .client-logo:focus-visible {
+        outline: 2px solid rgba(19, 132, 87, 0.6);
+        outline-offset: 2px;
+      }
+
+      .site-footer {
+        display: flex;
+        min-height: 42px;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 20px;
+        background: #00372b;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.72rem;
+        letter-spacing: 0.02em;
+        text-align: center;
+      }
+
+      @media (min-width: 1500px) {
+        .client-logo-grid {
+          grid-template-columns: repeat(8, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 900px) {
+        .industries-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .region-trust {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .region-trust-heading {
+          min-height: 0;
+          padding: 0 0 16px;
+          border-right: 0;
+          border-bottom: 1px solid rgba(18, 57, 46, 0.45);
+          font-size: clamp(1.8rem, 4vw, 2.7rem);
+        }
+
+        .region-photos {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 12px;
+        }
+
+        .region-photo-box {
+          max-height: none;
+          aspect-ratio: 0.8;
+        }
+
+        .client-logo-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 560px) {
+        .clients-section {
+          padding-top: 28px;
+        }
+
+        .industries-section {
+          margin-bottom: 24px;
+        }
+
+        .region-trust {
+          margin-bottom: 24px;
+        }
+
+        .region-photos {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .region-photo-box {
+          border-radius: 12px;
+        }
+
+        .industries-heading {
+          margin-bottom: 20px;
+        }
+
+        .industries-grid {
+          gap: 10px;
+        }
+
+        .industry-card {
+          min-height: 104px;
+          border-radius: 12px;
+        }
+
+        .client-logo-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 6px 8px;
+        }
+
+        .client-logo {
+          min-height: 72px;
+        }
+
+        .client-logo img {
+          width: min(100%, 96px);
+          height: 60px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .client-logo img {
+          transition: none;
+        }
+
+        .client-logo:hover img,
+        .client-logo:focus-visible img {
+          transform: none;
+        }
+      }
+
+      .clients-section {
+        min-height: calc(100vh - 112px);
+        padding: 64px clamp(20px, 6vw, 88px) 72px;
+        background: transparent;
+        color: #edf3f7;
+      }
+
+      .region-trust {
+        width: min(100%, 1320px);
+        margin-bottom: 76px;
+        grid-template-columns: minmax(230px, .8fr) minmax(0, 2.2fr);
+        align-items: stretch;
+        gap: clamp(24px, 4vw, 64px);
+      }
+
+      .region-trust-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .clients-kicker {
+        margin-bottom: 16px;
+        color: #79ddb0;
+        font-size: .72rem;
+        font-weight: 800;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+      }
+
+      .region-trust-heading {
+        display: block;
+        min-height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        color: #f4f7fa;
+        font-size: clamp(2.15rem, 4.2vw, 3.6rem);
+        font-weight: 600;
+        letter-spacing: -.055em;
+        line-height: 1.08;
+        text-align: left;
+      }
+
+      .region-trust-copy p {
+        max-width: 340px;
+        margin: 18px 0 0;
+        color: rgba(224, 234, 240, .68);
+        font-size: .92rem;
+        line-height: 1.7;
+      }
+
+      .region-photos {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .region-photo-box {
+        position: relative;
+        max-height: 380px;
+        aspect-ratio: .82;
+        border: 1px solid rgba(224, 240, 246, .16);
+        border-radius: 15px;
+        background: #101c29;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, .16);
+        transition: transform 300ms cubic-bezier(.2, .8, .2, 1), border-color 250ms ease, box-shadow 250ms ease;
+      }
+
+      .region-photo-box:hover {
+        z-index: 1;
+        border-color: rgba(82, 206, 145, .5);
+        box-shadow: 0 18px 36px rgba(0, 0, 0, .24), 0 0 0 1px rgba(82, 206, 145, .12);
+        transform: translateY(-6px);
+      }
+
+      .region-photo {
+        transition: transform 450ms cubic-bezier(.2, .8, .2, 1), filter 300ms ease;
+      }
+
+      .region-photo-box:hover .region-photo {
+        filter: saturate(1.08);
+        transform: scale(1.045);
+      }
+
+      .region-photo-caption {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 34px 12px 12px;
+        background: linear-gradient(transparent, rgba(4, 12, 20, .82));
+        color: #f4f7fa;
+        font-size: .75rem;
+        font-weight: 650;
+        opacity: 0;
+        transform: translateY(5px);
+        transition: opacity 220ms ease, transform 220ms ease;
+      }
+
+      .region-photo-box:hover .region-photo-caption,
+      .region-photo-box:focus-within .region-photo-caption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .industries-section {
+        width: min(100%, 1080px);
+        margin: 0 auto 64px;
+      }
+
+      .industries-heading {
+        position: relative;
+        margin: 0 0 30px;
+        padding-bottom: 16px;
+        color: #f4f7fa;
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 700;
+        letter-spacing: -.04em;
+        text-align: center;
+      }
+
+      .industries-heading::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 44px;
+        height: 2px;
+        border-radius: 99px;
+        background: #52ce91;
+        content: "";
+        transform: translateX(-50%);
+      }
+
+      .industries-grid {
+        gap: 14px;
+      }
+
+      .industry-card {
+        position: relative;
+        min-height: 136px;
+        overflow: hidden;
+        border: 1px solid rgba(212, 238, 231, .14);
+        border-radius: 15px;
+        background: linear-gradient(145deg, rgba(255, 255, 255, .085), rgba(255, 255, 255, .035));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07);
+        color: #f4f7fa;
+        transition: border-color 240ms ease, background 240ms ease, transform 240ms ease, box-shadow 240ms ease;
+      }
+
+      .industry-card::before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 36px;
+        height: 2px;
+        border-radius: 0 0 99px 99px;
+        background: #52ce91;
+        content: "";
+        opacity: .6;
+        transform: translateX(-50%);
+        transition: width 240ms ease, opacity 240ms ease;
+      }
+
+      .industry-card:hover {
+        border-color: rgba(82, 206, 145, .34);
+        background: linear-gradient(145deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .05));
+        box-shadow: 0 14px 30px rgba(0, 0, 0, .16), inset 0 1px 0 rgba(255, 255, 255, .1);
+        transform: translateY(-4px);
+      }
+
+      .industry-card:hover::before {
+        width: 64px;
+        opacity: 1;
+      }
+
+      .industry-count {
+        color: #83e1b2;
+        font-size: clamp(2rem, 3vw, 2.6rem);
+        letter-spacing: -.05em;
+      }
+
+      .industry-name {
+        color: rgba(237, 243, 247, .78);
+        font-size: .9rem;
+        font-weight: 600;
+      }
+
+      .client-partners-title {
+        margin: 0 auto 18px;
+        color: rgba(237, 243, 247, .7);
+        font-size: .76rem;
+        font-weight: 750;
+        letter-spacing: .14em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .client-logo-grid {
+        width: min(100%, 1080px);
+        padding: 16px;
+        border: 1px solid rgba(212, 238, 231, .12);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, .035);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+      }
+
+      .client-logo {
+        min-height: 82px;
+        border: 1px solid rgba(255, 255, 255, .06);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, .94);
+        transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+      }
+
+      .client-logo:hover,
+      .client-logo:focus-visible {
+        border-color: rgba(82, 206, 145, .55);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+        transform: translateY(-3px);
+      }
+
+      .client-logo img {
+        filter: grayscale(.55);
+        opacity: .82;
+      }
+
+      .client-logo:hover img,
+      .client-logo:focus-visible img {
+        filter: grayscale(0);
+        opacity: 1;
+        transform: scale(1.06);
+      }
+
+      [data-client-reveal] {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      html.has-client-reveal [data-client-reveal] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 650ms ease, transform 650ms cubic-bezier(.2, .8, .2, 1);
+        transition-delay: var(--client-delay, 0ms);
+      }
+
+      html.has-client-reveal [data-client-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 900px) {
+        .clients-section { padding: 42px 24px 56px; }
+        .region-trust { grid-template-columns: 1fr; gap: 22px; margin-bottom: 56px; }
+        .region-trust-copy { text-align: center; }
+        .region-trust-heading { text-align: center; }
+        .region-trust-copy p { margin: 14px auto 0; }
+        .region-photos { gap: 12px; }
+        .region-photo-box { aspect-ratio: .9; }
+      }
+
+      @media (max-width: 560px) {
+        .clients-section { padding: 32px 16px 42px; }
+        .region-trust { margin-bottom: 42px; }
+        .region-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+        .region-photo-box { aspect-ratio: .95; border-radius: 12px; }
+        .region-photo-caption { padding: 26px 9px 9px; font-size: .68rem; }
+        .industries-section { margin-bottom: 42px; }
+        .industries-grid { gap: 10px; }
+        .industry-card { min-height: 108px; border-radius: 12px; }
+        .client-logo-grid { padding: 10px; gap: 8px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html.has-client-reveal [data-client-reveal],
+        html.has-client-reveal [data-client-reveal].is-visible {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+
+        .region-photo-box,
+        .region-photo,
+        .region-photo-caption,
+        .industry-card,
+        .industry-card::before,
+        .client-logo,
+        .client-logo img {
+          transition: none;
+        }
+      }
+
+      /* A quiet, editorial logo wall in place of the bright tile grid. */
+      .client-partners-section {
+        width: min(100%, 1240px);
+        margin: 0 auto;
+      }
+
+      .client-partners-title {
+        margin: 0 0 20px;
+        color: #f4f7fa;
+        font-size: clamp(1.15rem, 2vw, 1.5rem);
+        font-weight: 650;
+        letter-spacing: -.035em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .client-logo-grid {
+        width: 100%;
+        padding: 14px 0;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 8px 12px;
+        border: 0;
+        border-top: 1px solid rgba(212, 238, 231, .2);
+        border-bottom: 1px solid rgba(212, 238, 231, .2);
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+      }
+
+      .client-logo {
+        min-height: 112px;
+        padding: 14px;
+        border: 0;
+        border-radius: 12px;
+        background: transparent;
+        transform: translateZ(0) scale(1);
+        transform-origin: center;
+        transition: transform 320ms cubic-bezier(.2, .8, .2, 1), filter 320ms ease;
+        will-change: transform;
+      }
+
+      .client-logo.is-near {
+        z-index: 1;
+        transform: scale(1.055);
+      }
+
+      .client-logo.is-grid-active {
+        z-index: 2;
+        transform: scale(1.22);
+      }
+
+      .client-logo img {
+        width: auto;
+        height: auto;
+        max-width: min(100%, 150px);
+        max-height: 82px;
+        image-rendering: auto;
+        filter: grayscale(1);
+        opacity: .82;
+        transition: filter 280ms ease, opacity 280ms ease, transform 320ms cubic-bezier(.2, .8, .2, 1);
+      }
+
+      .client-logo:hover,
+      .client-logo:focus-visible {
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .client-logo.is-grid-active,
+      .client-logo.is-grid-active:hover,
+      .client-logo.is-grid-active:focus-visible {
+        transform: scale(1.22);
+      }
+
+      .client-logo:hover img,
+      .client-logo:focus-visible img,
+      .client-logo.is-grid-active img {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+
+      .client-logo.is-near img { opacity: .96; }
+
+      .client-logo:focus-visible {
+        outline: 1px solid rgba(121, 221, 176, .7);
+        outline-offset: -2px;
+      }
+
+      .client-logo:nth-child(1) { --client-delay: 0ms; }
+      .client-logo:nth-child(2) { --client-delay: 35ms; }
+      .client-logo:nth-child(3) { --client-delay: 70ms; }
+      .client-logo:nth-child(4) { --client-delay: 105ms; }
+      .client-logo:nth-child(5) { --client-delay: 140ms; }
+      .client-logo:nth-child(6) { --client-delay: 175ms; }
+      .client-logo:nth-child(7) { --client-delay: 210ms; }
+      .client-logo:nth-child(8) { --client-delay: 245ms; }
+
+      @media (max-width: 900px) {
+        .client-logo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      }
+
+      @media (max-width: 560px) {
+        .client-partners-title { margin-bottom: 14px; text-align: center; }
+        .client-logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
+        .client-logo { min-height: 84px; padding: 8px; }
+        .client-logo img { max-width: 100%; max-height: 62px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .client-logo,
+        .client-logo img { transition: none; }
+
+        .client-logo.is-near,
+        .client-logo.is-grid-active { transform: none; }
+      }
+
+      /* Recompose the client story as an editorial intro and an asymmetric photo mosaic. */
+      .region-trust {
+        display: block;
+        width: min(100%, 1320px);
+        margin: 0 auto 88px;
+      }
+
+      .region-trust-copy {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+        align-items: end;
+        column-gap: clamp(30px, 7vw, 110px);
+        row-gap: 12px;
+        margin-bottom: 34px;
+        text-align: left;
+      }
+
+      .clients-kicker {
+        grid-column: 1 / -1;
+        margin: 0;
+      }
+
+      .region-trust-heading {
+        max-width: 760px;
+        font-size: clamp(2.6rem, 6vw, 5.4rem);
+        letter-spacing: -.065em;
+        line-height: .98;
+        text-align: left;
+      }
+
+      .region-trust-copy p {
+        max-width: 380px;
+        margin: 0 0 6px;
+        font-size: clamp(.94rem, 1.2vw, 1.08rem);
+        line-height: 1.75;
+        text-align: left;
+      }
+
+      .region-photos {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(190px, 1fr));
+        gap: 14px;
+      }
+
+      .region-photo-box {
+        min-width: 0;
+        max-height: none;
+        aspect-ratio: auto;
+        border-radius: 16px;
+      }
+
+      .region-photo-box:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .region-photo-box:nth-child(2),
+      .region-photo-box:nth-child(3) {
+        grid-column: span 1;
+      }
+
+      .region-photo-box:nth-child(4) {
+        grid-column: span 2;
+      }
+
+      .region-photo-caption {
+        padding: 52px 18px 16px;
+        font-size: .8rem;
+        opacity: .95;
+        transform: none;
+      }
+
+      @media (max-width: 900px) {
+        .region-trust { margin-bottom: 64px; }
+        .region-trust-copy {
+          grid-template-columns: minmax(0, 1fr) minmax(220px, .8fr);
+          text-align: left;
+        }
+        .region-trust-heading,
+        .region-trust-copy p { text-align: left; }
+        .region-photos {
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+          grid-template-rows: repeat(2, minmax(160px, 1fr));
+          gap: 12px;
+        }
+        .region-photo-box:nth-child(1) { grid-column: span 3; }
+        .region-photo-box:nth-child(2),
+        .region-photo-box:nth-child(3) { grid-column: span 3; }
+        .region-photo-box:nth-child(4) { grid-column: span 6; }
+      }
+
+      @media (max-width: 560px) {
+        .region-trust { margin-bottom: 46px; }
+        .region-trust-copy {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          margin-bottom: 22px;
+          text-align: left;
+        }
+        .region-trust-heading { font-size: clamp(2.4rem, 12vw, 3.5rem); }
+        .region-trust-copy p { margin: 0; }
+        .region-photos {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-rows: auto;
+          gap: 10px;
+        }
+        .region-photo-box { border-radius: 13px; }
+        .region-photo-box:nth-child(1) { grid-column: span 2; grid-row: auto; aspect-ratio: 1.35; }
+        .region-photo-box:nth-child(2),
+        .region-photo-box:nth-child(3) { grid-column: span 1; aspect-ratio: .82; }
+        .region-photo-box:nth-child(4) { grid-column: span 2; aspect-ratio: 1.45; }
+        .region-photo-caption { padding: 40px 12px 12px; font-size: .72rem; }
+      }
+
+      /* A calmer centered introduction with a balanced photo gallery. */
+      .region-trust {
+        width: min(100%, 1320px);
+        margin: 0 auto 76px;
+      }
+
+      .region-trust-copy {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 14px;
+        margin: 0 auto 38px;
+        text-align: center;
+      }
+
+      .clients-kicker {
+        margin: 0;
+        font-size: .72rem;
+        letter-spacing: .2em;
+      }
+
+      .region-trust-heading {
+        max-width: 900px;
+        font-size: clamp(2.3rem, 5vw, 4.2rem);
+        letter-spacing: -.055em;
+        line-height: 1.05;
+        text-align: center;
+        text-wrap: balance;
+      }
+
+      .region-trust-copy p {
+        max-width: 600px;
+        margin: 0;
+        font-size: clamp(.95rem, 1.15vw, 1.05rem);
+        line-height: 1.75;
+        text-align: center;
+      }
+
+      .region-photos {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: auto;
+        align-items: start;
+        gap: clamp(12px, 1.5vw, 20px);
+      }
+
+      .region-photo-box,
+      .region-photo-box:nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100%;
+        aspect-ratio: 1.05;
+        border-radius: 18px;
+      }
+
+      .region-photo-box:nth-child(even) {
+        margin-top: 24px;
+      }
+
+      .region-photo {
+        filter: saturate(.86);
+        transition: filter 350ms ease, transform 500ms cubic-bezier(.2, .8, .2, 1);
+      }
+
+      .region-photo-box:hover .region-photo,
+      .region-photo-box:focus-within .region-photo {
+        filter: saturate(1.05);
+        transform: scale(1.035);
+      }
+
+      .region-photo-caption {
+        padding: 54px 16px 15px;
+        color: #fff;
+        font-size: .78rem;
+        font-weight: 650;
+        opacity: .96;
+        transform: none;
+      }
+
+      @media (max-width: 900px) {
+        .region-trust { margin-bottom: 60px; }
+        .region-trust-copy { align-items: center; text-align: center; }
+        .region-trust-heading,
+        .region-trust-copy p { text-align: center; }
+        .region-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .region-photo-box,
+        .region-photo-box:nth-child(n) { aspect-ratio: 1.25; }
+        .region-photo-box:nth-child(even) { margin-top: 18px; }
+      }
+
+      @media (max-width: 560px) {
+        .region-trust { margin-bottom: 46px; }
+        .region-trust-copy { gap: 12px; margin-bottom: 24px; }
+        .region-trust-heading { font-size: clamp(2.1rem, 10vw, 3rem); }
+        .region-photos { gap: 10px; }
+        .region-photo-box,
+        .region-photo-box:nth-child(n) { aspect-ratio: .92; border-radius: 13px; }
+        .region-photo-box:nth-child(even) { margin-top: 12px; }
+        .region-photo-caption { padding: 42px 11px 11px; font-size: .7rem; }
+      }
+
+      .region-photos {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+        mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+      }
+
+      .region-photo-track {
+        display: flex;
+        width: max-content;
+        animation: client-photo-carousel 38s linear infinite;
+        will-change: transform;
+      }
+
+      .region-photo-group {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 18px;
+        padding-right: 18px;
+      }
+
+      .region-photo-box,
+      .region-photo-box:nth-child(n) {
+        position: relative;
+        flex: 0 0 clamp(230px, 23vw, 310px);
+        width: clamp(230px, 23vw, 310px);
+        max-height: none;
+        aspect-ratio: 1.08;
+        margin: 0;
+        border-radius: 17px;
+      }
+
+      .region-photo-box:hover,
+      .region-photo-box:focus-within { transform: translateY(-4px); }
+
+      .region-photo-box.is-placeholder {
+        display: grid;
+        place-items: center;
+        border: 1px dashed rgba(164, 201, 210, .42);
+        background: linear-gradient(145deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .015));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
+      }
+
+      .region-photo-box.is-placeholder::before,
+      .region-photo-box.is-placeholder::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30px;
+        height: 1px;
+        border-radius: 2px;
+        background: rgba(191, 219, 220, .58);
+        content: "";
+        transform: translate(-50%, -50%);
+      }
+
+      .region-photo-box.is-placeholder::after { transform: translate(-50%, -50%) rotate(90deg); }
+
+      .region-photo-box.is-placeholder:hover {
+        border-color: rgba(121, 221, 176, .7);
+        background: rgba(255, 255, 255, .065);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 12px 28px rgba(0, 0, 0, .18);
+      }
+
+      .region-photos:hover .region-photo-track,
+      .region-photos:focus-within .region-photo-track { animation-play-state: paused; }
+
+      @keyframes client-photo-carousel {
+        to { transform: translateX(-50%); }
+      }
+
+      @media (max-width: 900px) {
+        .region-photo-group { gap: 14px; padding-right: 14px; }
+        .region-photo-box,
+        .region-photo-box:nth-child(n) { flex-basis: clamp(230px, 38vw, 300px); width: clamp(230px, 38vw, 300px); }
+      }
+
+      @media (max-width: 560px) {
+        .region-photo-group { gap: 10px; padding-right: 10px; }
+        .region-photo-box,
+        .region-photo-box:nth-child(n) { flex-basis: 74vw; width: 74vw; aspect-ratio: .98; border-radius: 14px; }
+        .region-photo-track { animation-duration: 34s; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .region-photos { overflow-x: auto; }
+        .region-photo-track { animation: none; will-change: auto; }
+        .region-photo-group--duplicate { display: none; }
+        .region-photo-box:hover,
+        .region-photo-box:focus-within { transform: none; }
+      }
+    </style>
+    <link rel="stylesheet" href="assets/navigation.css" />
+    <link rel="stylesheet" href="assets/site-loader.css" />
+    <script src="assets/navigation.js" defer></script>
+    <script src="assets/site-loader.js" defer></script>
+  </head>
+  <body class="site-page">
+    <div class="site-loader" id="site-loader" role="status" aria-label="Loading G Technology">
+      <div class="site-loader-content">
+        <div class="site-loader-mark" aria-hidden="true">
+          <img class="site-loader-logo" src="assets/gtechnology-logo.png" alt="" />
+        </div>
+        <span class="site-loader-label">Loading<span></span><span></span><span></span></span>
+      </div>
+    </div>
+    <div class="page">
+      <header class="topbar">
+        <nav class="nav nav-left" aria-label="Main navigation">
+          <a href="home.html"><span>Home</span></a>
+          <a href="services.html"><span>Services</span></a>
+          <a href="clients.html" aria-current="page"><span>Clients</span></a>
+        </nav>
+
+        <a class="brand" href="home.html" aria-label="G Technology home">
+          <img class="brand-mark" src="assets/gtechnology-logo.png" alt="" />
+          <span>G TECHNOLOGY</span>
+        </a>
+
+        <nav class="nav nav-right" aria-label="More navigation">
+          <a href="team.html"><span>Team</span></a>
+          <a href="contract.html"><span>Contact</span></a>
+          <a class="facebook" href="https://www.facebook.com/profile.php?id=100045189956593" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook profile"><span class="facebook-icon" aria-hidden="true"><span class="facebook-glyph">f</span><span class="facebook-glyph facebook-glyph--incoming">f</span></span><span class="cta-label" aria-hidden="true"><span class="cta-label-text">Facebook</span><span class="cta-label-text cta-label-text--incoming">Facebook</span></span></a>
+        </nav>
+      </header>
+      <main class="clients-section" aria-label="Clients">
+        <section class="region-trust" aria-labelledby="region-trust-title">
+          <div class="region-trust-copy" data-client-reveal>
+            <span class="clients-kicker">Local partnerships</span>
+            <h2 class="region-trust-heading" id="region-trust-title">Trusted by our clients across Region 2</h2>
+            <p>On-site consultations, system support, and training help us stay close to the organizations we serve.</p>
+          </div>
+          <div class="region-photos" aria-label="Client visits and support photos">
+            <div class="region-photo-track">
+              <div class="region-photo-group">
+                <figure class="region-photo-box" tabindex="0" data-client-reveal style="--client-delay: 0ms">
+                  <img class="region-photo" src="assets/clients/region-2-visit-01.jpg" alt="Client meeting at a local office" />
+                  <figcaption class="region-photo-caption">Client meeting</figcaption>
+                </figure>
+                <figure class="region-photo-box" tabindex="0" data-client-reveal style="--client-delay: 70ms">
+                  <img class="region-photo" src="assets/clients/region-2-visit-02.jpg" alt="Consultation with a client at their office" />
+                  <figcaption class="region-photo-caption">On-site consultation</figcaption>
+                </figure>
+                <figure class="region-photo-box" tabindex="0" data-client-reveal style="--client-delay: 140ms">
+                  <img class="region-photo" src="assets/clients/region-2-visit-03.jpg" alt="Supporting a client with their computer system" />
+                  <figcaption class="region-photo-caption">Hands-on system support</figcaption>
+                </figure>
+                <figure class="region-photo-box" tabindex="0" data-client-reveal style="--client-delay: 210ms">
+                  <img class="region-photo" src="assets/clients/region-2-visit-04.jpg" alt="Providing on-site support for a client team" />
+                  <figcaption class="region-photo-caption">On-site support</figcaption>
+                </figure>
+                <figure class="region-photo-box" tabindex="0" data-client-reveal style="--client-delay: 280ms">
+                  <img class="region-photo" src="assets/clients/regional-visit-05-team-meeting.jpg" alt="G. Technology team discussing software with a client" />
+                  <figcaption class="region-photo-caption">Client software walkthrough</figcaption>
+                </figure>
+                <figure class="region-photo-box" tabindex="0" data-client-reveal style="--client-delay: 350ms">
+                  <img class="region-photo" src="assets/clients/regional-visit-06-system-presentation.jpg" alt="G. Technology demonstrating a system during a presentation" />
+                  <figcaption class="region-photo-caption">System presentation</figcaption>
+                </figure>
+                <figure class="region-photo-box" tabindex="0" data-client-reveal style="--client-delay: 420ms">
+                  <img class="region-photo" src="assets/clients/regional-visit-07-server-setup.jpg" alt="G. Technology staff configuring a server rack" />
+                  <figcaption class="region-photo-caption">Server installation</figcaption>
+                </figure>
+                <figure class="region-photo-box" tabindex="0" data-client-reveal style="--client-delay: 490ms">
+                  <img class="region-photo" src="assets/clients/regional-visit-05-team-meeting.jpg" alt="G. Technology team discussing software with a client" />
+                  <figcaption class="region-photo-caption">Client software walkthrough</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="industries-section" aria-labelledby="industries-title">
+          <h1 class="industries-heading" id="industries-title" data-client-reveal>Industries We Serve</h1>
+          <div class="industries-grid">
+            <article class="industry-card" data-client-reveal style="--client-delay: 0ms">
+              <span class="industry-count">10</span>
+              <span class="industry-name">Education</span>
+            </article>
+            <article class="industry-card" data-client-reveal style="--client-delay: 70ms">
+              <span class="industry-count">10</span>
+              <span class="industry-name">Cooperation</span>
+            </article>
+            <article class="industry-card" data-client-reveal style="--client-delay: 140ms">
+              <span class="industry-count">10</span>
+              <span class="industry-name">Healthcare</span>
+            </article>
+            <article class="industry-card" data-client-reveal style="--client-delay: 210ms">
+              <span class="industry-count">10</span>
+              <span class="industry-name">Others</span>
+            </article>
+          </div>
+        </section>
+        <section class="client-partners-section" aria-labelledby="client-partners-title">
+          <h2 class="client-partners-title" id="client-partners-title" data-client-reveal>Selected clients and partners</h2>
+        <div class="client-logo-grid" aria-label="Client and partner logos" data-client-reveal>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Rural Bank of Cauayan logo" data-client-reveal>
+            <img src="assets/clients/rural-bank-cauayan.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Belimo logo" data-client-reveal>
+            <img src="assets/clients/belimo.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="LifeGroups logo" data-client-reveal>
+            <img src="assets/clients/life-groups.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Lilly logo" data-client-reveal>
+            <img src="assets/clients/lilly.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Citrus logo" data-client-reveal>
+            <img src="assets/clients/citrus.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Trustly logo" data-client-reveal>
+            <img src="assets/clients/trustly.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Oldendorff logo" data-client-reveal>
+            <img src="assets/clients/oldendorff.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Grabyo logo" data-client-reveal>
+            <img src="assets/clients/grabyo.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="The Rainbow Learning Center logo" data-client-reveal>
+            <img src="assets/clients/rainbow.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="TAG Chem logo" data-client-reveal>
+            <img src="assets/clients/tag-chem.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="myob logo" data-client-reveal>
+            <img src="assets/clients/myob.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Railway Employees association logo" data-client-reveal>
+            <img src="assets/clients/railway-employees.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Serna Store logo" data-client-reveal>
+            <img src="assets/clients/serna-store.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="BISADECO logo" data-client-reveal>
+            <img src="assets/clients/bisadeco.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Commission on Higher Education logo" data-client-reveal>
+            <img src="assets/clients/commission-higher-education.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Sagip Hero Multipurpose Cooperative logo" data-client-reveal>
+            <img src="assets/clients/sagip-hero-multipurpose.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="City of Ilagan logo" data-client-reveal>
+            <img src="assets/clients/city-of-ilagan.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Isabela State University logo" data-client-reveal>
+            <img src="assets/clients/isabela-state-university.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="MBMA 88 logo" data-client-reveal>
+            <img src="assets/clients/mbma-88.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Mulanders Multipurpose Cooperative logo" data-client-reveal>
+            <img src="assets/clients/mulanders.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Pacific Star International Employment Agency logo" data-client-reveal>
+            <img src="assets/clients/pacific-star-international.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="TBC Tech logo" data-client-reveal>
+            <img src="assets/clients/tbc-tech.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="Rural Bank seal" data-client-reveal>
+            <img src="assets/clients/rural-bank-seal.png" alt="" />
+          </figure>
+          <figure class="client-logo" tabindex="0" role="img" aria-label="RJU Gas Station logo" data-client-reveal>
+            <img src="assets/clients/rju-gas-station.png" alt="" />
+          </figure>
+        </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <small>Copyright GTechnology. All Rights Reserved | Designed by GTechnology</small>
+      </footer>
+    </div>
+    <script>
+      const clientPhotoTrack = document.querySelector(".region-photo-track");
+      const clientPhotoGroup = clientPhotoTrack?.querySelector(".region-photo-group");
+      const clientReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      if (clientPhotoTrack && clientPhotoGroup && !clientReducedMotion.matches) {
+        const duplicatePhotoGroup = clientPhotoGroup.cloneNode(true);
+        duplicatePhotoGroup.classList.add("region-photo-group--duplicate");
+        duplicatePhotoGroup.setAttribute("aria-hidden", "true");
+        duplicatePhotoGroup.querySelectorAll("[data-client-reveal]").forEach((item) => {
+          item.removeAttribute("data-client-reveal");
+          item.removeAttribute("tabindex");
+        });
+        clientPhotoTrack.appendChild(duplicatePhotoGroup);
+      }
+
+      const clientRevealItems = document.querySelectorAll("[data-client-reveal]");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      const clientLogoGrid = document.querySelector(".client-logo-grid");
+      if (clientLogoGrid) {
+        const clientLogos = Array.from(clientLogoGrid.querySelectorAll(".client-logo"));
+        const highlightLogo = (activeLogo) => {
+          const columns = getComputedStyle(clientLogoGrid).gridTemplateColumns.split(" ").length;
+          const activeIndex = clientLogos.indexOf(activeLogo);
+          if (activeIndex < 0) return;
+          const activeRow = Math.floor(activeIndex / columns);
+          const activeColumn = activeIndex % columns;
+
+          clientLogos.forEach((logo, index) => {
+            const rowDistance = Math.abs(Math.floor(index / columns) - activeRow);
+            const columnDistance = Math.abs((index % columns) - activeColumn);
+            const distance = Math.max(rowDistance, columnDistance);
+            logo.classList.toggle("is-grid-active", distance === 0);
+            logo.classList.toggle("is-near", distance === 1);
+          });
+        };
+
+        const clearLogoHighlight = () => {
+          clientLogos.forEach((logo) => logo.classList.remove("is-grid-active", "is-near"));
+        };
+
+        clientLogos.forEach((logo) => {
+          logo.addEventListener("pointerenter", () => highlightLogo(logo));
+          logo.addEventListener("focus", () => highlightLogo(logo));
+        });
+        clientLogoGrid.addEventListener("pointerleave", clearLogoHighlight);
+        clientLogoGrid.addEventListener("focusout", (event) => {
+          if (!clientLogoGrid.contains(event.relatedTarget)) clearLogoHighlight();
+        });
+      }
+
+      if ("IntersectionObserver" in window && !reducedMotion.matches) {
+        document.documentElement.classList.add("has-client-reveal");
+        const clientRevealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle("is-visible", entry.isIntersecting);
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+
+        clientRevealItems.forEach((item) => clientRevealObserver.observe(item));
+      }
+    </script>
+  </body>
+</html>

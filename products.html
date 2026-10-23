@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#151515" />
+    <title>Products | G Technology</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+      :root {
+        --bg: #f3f3f1;
+        --text: #111;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Manrope', 'Segoe UI', sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        padding-top: 90px;
+      }
+
+      .topbar {
+        position: fixed;
+        z-index: 10000;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        min-height: 90px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 0 16px 0 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+        background: linear-gradient(105deg, #151515 0%, #1b1b1b 55%, #111 100%);
+        color: #f7f7f7;
+      }
+
+      .brand {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 12px;
+        color: #f7f7f7;
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .brand-mark {
+        display: block;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+      }
+
+      .nav {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(22px, 2vw, 34px);
+        font-size: clamp(0.9rem, 1.15vw, 1.375rem);
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .nav a {
+        position: relative;
+        overflow: hidden;
+        padding: 11px 12px;
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.88);
+        text-decoration: none;
+        outline: none;
+        transition:
+          color 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+          box-shadow 0.2s ease,
+          transform 0.25s ease;
+      }
+
+      .nav a::before {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        border-radius: inherit;
+        background: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0 7 C25 0 25 14 50 7 S75 0 100 7 V12 H0Z' fill='%23fff'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        background-size: 100px 12px;
+        content: "";
+        transform: translateY(100%);
+        transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .nav a > span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .nav a:hover::before,
+      .nav a:focus-visible::before {
+        transform: translateY(0);
+        animation: menu-wave 2s linear infinite;
+      }
+
+      .nav a[aria-current="page"]::before {
+        transform: translateY(0);
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible,
+      .nav a[aria-current="page"] {
+        color: #111;
+        box-shadow: 0 3px 13px rgba(255, 255, 255, 0.35);
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        transform: translateY(-4px);
+      }
+
+      @keyframes menu-wave {
+        to {
+          background-position: 100px 0;
+        }
+      }
+
+      .cta-top {
+        position: relative;
+        display: inline-flex;
+        flex: 0 0 auto;
+        width: 52px;
+        height: 52px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border: none;
+        border-radius: 999px;
+        background: #1019ed;
+        color: #fff;
+        text-decoration: none;
+        transition: transform 0.25s ease, box-shadow 0.2s ease;
+      }
+
+      .cta-top::before {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        border-radius: inherit;
+        background: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0 7 C25 0 25 14 50 7 S75 0 100 7 V12 H0Z' fill='%23fff'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        background-size: 100px 12px;
+        content: "";
+        transform: translateY(100%);
+        transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .cta-top:hover::before,
+      .cta-top:focus-visible::before {
+        transform: translateY(0);
+        animation: menu-wave 2s linear infinite;
+      }
+
+      .cta-top:hover,
+      .cta-top:focus-visible {
+        transform: translateY(-4px);
+        box-shadow: 0 3px 13px rgba(255, 255, 255, 0.35);
+      }
+
+      .facebook-icon {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        width: 33px;
+        height: 33px;
+        place-items: center;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 2.1rem;
+        font-weight: 800;
+        line-height: 1;
+        text-transform: lowercase;
+        transform: translateY(2px);
+        transition: color 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .cta-top:hover .facebook-icon,
+      .cta-top:focus-visible .facebook-icon {
+        color: #1877f2;
+      }
+
+      @media (max-width: 980px) {
+        .topbar {
+          gap: 18px;
+        }
+
+        .nav {
+          gap: 16px;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          padding-top: 0;
+        }
+
+        .topbar {
+          position: sticky;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding: 12px 16px;
+          gap: 12px;
+        }
+
+        .brand {
+          gap: 7px;
+          font-size: 1rem;
+        }
+
+        .brand-mark {
+          width: 42px;
+          height: 42px;
+        }
+
+        .cta-top {
+          width: 42px;
+          height: 42px;
+        }
+
+        .facebook-icon {
+          width: 29px;
+          height: 29px;
+          font-size: 1.4rem;
+        }
+
+        .nav {
+          order: 3;
+          width: 100%;
+          flex: 0 0 100%;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 10px 20px;
+          padding: 6px 0 2px;
+          font-size: 0.82rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .nav a,
+        .nav a::before,
+        .cta-top,
+        .cta-top::before,
+        .facebook-icon {
+          transition: none;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible,
+        .cta-top:hover,
+        .cta-top:focus-visible {
+          transform: none;
+        }
+
+        .nav a:hover::before,
+        .nav a:focus-visible::before,
+        .cta-top:hover::before,
+        .cta-top:focus-visible::before {
+          animation: none;
+        }
+      }
+      .topbar {
+        min-height: 80px;
+        gap: clamp(12px, 2vw, 28px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.38);
+        box-shadow: 0 8px 24px rgba(20, 30, 25, 0.06);
+        -webkit-backdrop-filter: blur(18px) saturate(150%);
+        backdrop-filter: blur(18px) saturate(150%);
+        color: var(--text);
+      }
+
+      .brand {
+        color: var(--text);
+      }
+
+      .nav {
+        flex: 0 1 auto;
+        gap: 0;
+        max-width: calc(100% - 180px);
+        overflow-x: auto;
+        padding: 0 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.82);
+        background: rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 24px rgba(31, 80, 55, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+        -webkit-backdrop-filter: blur(16px) saturate(160%);
+        backdrop-filter: blur(16px) saturate(160%);
+        font-size: 0.875rem;
+        letter-spacing: 0;
+        text-transform: none;
+        scrollbar-width: none;
+      }
+
+      .nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav a {
+        flex: 0 0 auto;
+        padding: 12px 11px;
+        border-radius: 999px;
+        color: #111;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .nav a::before {
+        display: none;
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        color: #111;
+        background: rgba(0, 0, 0, 0.06);
+        box-shadow: none;
+        transform: none;
+      }
+
+      .nav a:focus-visible {
+        outline: 2px solid #245d40;
+        outline-offset: 2px;
+      }
+
+      .nav a[aria-current="page"] {
+        background: rgba(255, 255, 255, 0.46);
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.75);
+      }
+
+      @media (max-width: 760px) {
+        .topbar {
+          min-height: 0;
+        }
+
+        .nav {
+          flex: 0 0 100%;
+          max-width: 100%;
+          justify-content: flex-start;
+          flex-wrap: nowrap;
+          gap: 0;
+          padding: 0 8px;
+          font-size: 0.82rem;
+        }
+
+        .nav a {
+          padding: 10px 11px;
+        }
+      }
+
+      /* Products showcase */
+      :root {
+        --product-ink: #eaf5f1;
+        --product-muted: #9aafaa;
+        --product-green: #71ddb0;
+        --product-line: rgba(113, 221, 176, .2);
+      }
+
+      html,
+      body {
+        background: #07121b;
+        color: var(--product-ink);
+      }
+
+      .page {
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse at 78% 14%, rgba(24, 83, 92, .34), transparent 38%),
+          radial-gradient(ellipse at 13% 44%, rgba(13, 91, 68, .25), transparent 34%),
+          linear-gradient(135deg, #07121b, #0b1928 58%, #07121b);
+      }
+
+      .page::before {
+        position: absolute;
+        z-index: 0;
+        inset: 90px 0 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(133, 189, 181, .055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(133, 189, 181, .055) 1px, transparent 1px),
+          radial-gradient(circle, rgba(113, 221, 176, .45) 1.4px, transparent 1.8px);
+        background-size: 74px 74px, 74px 74px, 166px 166px;
+        background-position: center top, center top, 35px 40px;
+        content: "";
+        mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.7) 58%, transparent 100%);
+      }
+
+      .products-main {
+        position: relative;
+        z-index: 1;
+        width: min(1240px, calc(100% - 64px));
+        margin: 0 auto;
+        padding: clamp(58px, 8vw, 112px) 0 100px;
+      }
+
+      .products-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+        align-items: center;
+        gap: clamp(38px, 7vw, 100px);
+        min-height: 400px;
+        padding-bottom: 84px;
+      }
+
+      .products-eyebrow,
+      .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--product-green);
+        font-size: .72rem;
+        font-weight: 800;
+        letter-spacing: .17em;
+        text-transform: uppercase;
+      }
+
+      .products-eyebrow::before,
+      .section-kicker::before {
+        width: 26px;
+        height: 1px;
+        background: currentColor;
+        content: "";
+      }
+
+      .products-title {
+        max-width: 690px;
+        margin: 22px 0 18px;
+        font-size: clamp(3.25rem, 7vw, 6.4rem);
+        font-weight: 700;
+        letter-spacing: -.075em;
+        line-height: .94;
+      }
+
+      .products-title span {
+        color: var(--product-green);
+      }
+
+      .products-intro {
+        max-width: 570px;
+        margin: 0;
+        color: #aabbb8;
+        font-size: clamp(1rem, 1.45vw, 1.15rem);
+        line-height: 1.8;
+      }
+
+      .products-hero-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 28px;
+        color: var(--product-ink);
+        font-size: .92rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .products-hero-link span {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border: 1px solid var(--product-line);
+        border-radius: 50%;
+        color: var(--product-green);
+        transition: transform .25s ease, background .25s ease;
+      }
+
+      .products-hero-link:hover span,
+      .products-hero-link:focus-visible span { transform: translateX(5px); background: rgba(113,221,176,.1); }
+
+      .featured-product {
+        position: relative;
+        min-height: 320px;
+        padding: 25px;
+        overflow: hidden;
+        border: 1px solid rgba(136, 226, 191, .3);
+        border-radius: 24px;
+        background: linear-gradient(145deg, rgba(19, 73, 63, .85), rgba(12, 30, 44, .95) 70%);
+        box-shadow: 0 30px 90px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08);
+        transform: rotate(1.6deg);
+      }
+
+      .featured-product::before,
+      .featured-product::after {
+        position: absolute;
+        border: 1px solid rgba(113, 221, 176, .16);
+        border-radius: 50%;
+        content: "";
+        pointer-events: none;
+      }
+
+      .featured-product::before { width: 330px; height: 330px; right: -148px; top: -184px; }
+      .featured-product::after { width: 240px; height: 240px; right: -103px; top: -138px; }
+
+      .featured-topline,
+      .featured-bottomline { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+      .featured-label { color: #a8c9bc; font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+      .featured-status { display: inline-flex; align-items: center; gap: 7px; color: #a8c9bc; font-size: .68rem; }
+      .featured-status::before { width: 7px; height: 7px; border-radius: 50%; background: var(--product-green); box-shadow: 0 0 12px var(--product-green); content: ""; }
+
+      .system-preview {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        gap: 10px;
+        height: 142px;
+        margin: 26px 0 20px;
+      }
+
+      .preview-window,
+      .preview-side { border: 1px solid rgba(180, 229, 211, .18); border-radius: 12px; background: rgba(5, 20, 29, .56); }
+      .preview-window { padding: 12px; }
+      .preview-toolbar { display: flex; gap: 4px; padding-bottom: 12px; border-bottom: 1px solid rgba(180,229,211,.12); }
+      .preview-toolbar i { width: 5px; height: 5px; border-radius: 50%; background: #54766e; }
+      .preview-heading { width: 54%; height: 7px; margin: 13px 0 9px; border-radius: 5px; background: #b6d8c9; opacity: .75; }
+      .preview-row { display: grid; grid-template-columns: 1.1fr .6fr .45fr; gap: 7px; align-items: center; height: 22px; border-top: 1px solid rgba(180,229,211,.1); }
+      .preview-row i { display: block; height: 4px; border-radius: 4px; background: #58776f; }
+      .preview-row i:last-child { background: var(--product-green); opacity: .8; }
+      .preview-side { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 13px; }
+      .preview-stat { color: #86e2b7; font-size: 1.65rem; font-weight: 800; letter-spacing: -.06em; }
+      .preview-stat-label { color: #88a9a1; font-size: .62rem; }
+      .preview-chart { display: flex; height: 28px; align-items: end; gap: 4px; }
+      .preview-chart i { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(#78e0b4, #287c66); opacity: .82; }
+      .preview-chart i:nth-child(1) { height: 35%; }.preview-chart i:nth-child(2) { height: 56%; }.preview-chart i:nth-child(3) { height: 43%; }.preview-chart i:nth-child(4) { height: 82%; }.preview-chart i:nth-child(5) { height: 65%; }.preview-chart i:nth-child(6) { height: 100%; }
+      .featured-bottomline { align-items: end; }
+      .featured-bottomline h2 { margin: 0 0 4px; font-size: 1.25rem; letter-spacing: -.04em; }
+      .featured-bottomline p { margin: 0; color: #a6c0b8; font-size: .77rem; }
+      .featured-number { color: rgba(211,244,230,.58); font-size: .68rem; font-weight: 700; letter-spacing: .12em; }
+
+      .product-section { padding-top: 36px; border-top: 1px solid rgba(173,216,206,.15); }
+      .product-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+      .product-section-heading h2 { margin: 10px 0 0; font-size: clamp(1.9rem, 3.5vw, 3rem); letter-spacing: -.06em; }
+      .product-section-heading p { max-width: 370px; margin: 0; color: var(--product-muted); font-size: .9rem; line-height: 1.7; }
+
+      .product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      .product-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 60px minmax(0, 1fr) 38px;
+        align-items: start;
+        gap: 18px;
+        min-height: 190px;
+        padding: 25px;
+        border: 1px solid rgba(155, 207, 192, .18);
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(19, 39, 51, .88), rgba(12, 28, 38, .72));
+        transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+      }
+
+      .product-card:hover,
+      .product-card:focus-within { transform: translateY(-5px); border-color: rgba(113,221,176,.55); background: linear-gradient(135deg, rgba(21, 62, 55, .92), rgba(12, 31, 43, .9)); box-shadow: 0 18px 46px rgba(0,0,0,.2); }
+      .product-icon { display: grid; width: 58px; height: 58px; place-items: center; border: 1px solid rgba(113,221,176,.24); border-radius: 16px; background: rgba(113,221,176,.08); color: var(--product-green); }
+      .product-icon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
+      .product-card-copy { min-width: 0; }
+      .product-index { color: #78cba7; font-size: .65rem; font-weight: 800; letter-spacing: .13em; }
+      .product-card h3 { margin: 9px 0 8px; color: var(--product-ink); font-size: 1.12rem; letter-spacing: -.025em; }
+      .product-card p { margin: 0; color: var(--product-muted); font-size: .83rem; line-height: 1.7; }
+      .product-arrow { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid rgba(155,207,192,.18); border-radius: 50%; color: #8bdcb7; font-size: 1.1rem; transition: transform .25s ease, background .25s ease; }
+      .product-card:hover .product-arrow { transform: translate(2px,-2px); background: rgba(113,221,176,.13); }
+
+      .products-contact {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        margin-top: 56px;
+        padding: 28px 32px;
+        border: 1px solid rgba(113,221,176,.28);
+        border-radius: 20px;
+        background: linear-gradient(100deg, rgba(16,76,59,.48), rgba(15,43,54,.56));
+      }
+      .products-contact h2 { margin: 0 0 6px; font-size: clamp(1.2rem, 2.5vw, 1.8rem); letter-spacing: -.04em; }
+      .products-contact p { margin: 0; color: var(--product-muted); font-size: .86rem; line-height: 1.6; }
+      .products-contact a { flex: 0 0 auto; padding: 13px 18px; border: 1px solid rgba(113,221,176,.4); border-radius: 999px; background: #72dcb0; color: #08251c; font-size: .82rem; font-weight: 800; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+      .products-contact a:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(113,221,176,.2); }
+
+      @media (max-width: 820px) {
+        .products-main { width: min(100% - 40px, 680px); padding-top: 56px; }
+        .products-hero { grid-template-columns: 1fr; gap: 38px; padding-bottom: 62px; }
+        .featured-product { width: min(100%, 490px); justify-self: center; }
+        .product-section-heading { align-items: start; flex-direction: column; }
+      }
+
+      @media (max-width: 580px) {
+        .products-main { width: calc(100% - 32px); padding-top: 42px; padding-bottom: 60px; }
+        .products-title { font-size: clamp(3rem, 15vw, 4.7rem); }
+        .featured-product { min-height: 290px; padding: 19px; border-radius: 20px; }
+        .system-preview { height: 125px; }
+        .product-grid { grid-template-columns: 1fr; }
+        .product-card { grid-template-columns: 50px minmax(0,1fr) 32px; gap: 13px; min-height: 0; padding: 19px; }
+        .product-icon { width: 48px; height: 48px; border-radius: 13px; }
+        .product-icon svg { width: 24px; height: 24px; }
+        .products-contact { align-items: start; flex-direction: column; padding: 23px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      }
+    </style>
+    <link rel="stylesheet" href="assets/navigation.css" />
+    <script src="assets/navigation.js" defer></script>
+  </head>
+  <body class="site-page">
+    <div class="page">
+      <header class="topbar">
+        <nav class="nav nav-left" aria-label="Main navigation">
+          <a href="home.html"><span>Home</span></a>
+          <a href="services.html"><span>Services</span></a>
+          <a href="clients.html"><span>Clients</span></a>
+        </nav>
+
+        <a class="brand" href="home.html" aria-label="G Technology home">
+          <img class="brand-mark" src="assets/gtechnology-logo.png" alt="" />
+          <span>G TECHNOLOGY</span>
+        </a>
+
+        <nav class="nav nav-right" aria-label="More navigation">
+          <a href="team.html"><span>Team</span></a>
+          <a href="contract.html"><span>Contact</span></a>
+          <a class="facebook" href="https://www.facebook.com/profile.php?id=100045189956593" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook profile"><span class="facebook-icon" aria-hidden="true"><span class="facebook-glyph">f</span><span class="facebook-glyph facebook-glyph--incoming">f</span></span><span class="cta-label" aria-hidden="true"><span class="cta-label-text">Facebook</span><span class="cta-label-text cta-label-text--incoming">Facebook</span></span></a>
+        </nav>
+      </header>
+      <main class="products-main" aria-label="Products">
+        <section class="products-hero" aria-labelledby="products-title">
+          <div class="products-hero-copy">
+            <span class="products-eyebrow">Made for real work</span>
+            <h1 class="products-title" id="products-title">Systems that move <span>you forward.</span></h1>
+            <p class="products-intro">Purpose-built software that helps organizations manage their people, records, and day-to-day operations with more clarity.</p>
+            <a class="products-hero-link" href="#featured-systems">Explore our systems <span aria-hidden="true">↓</span></a>
+          </div>
+
+          <article class="featured-product" aria-label="Featured system: SARIAS">
+            <div class="featured-topline"><span class="featured-label">Featured system</span><span class="featured-status">In operation</span></div>
+            <div class="system-preview" aria-hidden="true">
+              <div class="preview-window"><div class="preview-toolbar"><i></i><i></i><i></i></div><div class="preview-heading"></div><div class="preview-row"><i></i><i></i><i></i></div><div class="preview-row"><i></i><i></i><i></i></div><div class="preview-row"><i></i><i></i><i></i></div></div>
+              <div class="preview-side"><div><div class="preview-stat">S</div><div class="preview-stat-label">STUDENT RECORDS</div></div><div class="preview-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            </div>
+            <div class="featured-bottomline"><div><h2>SARIAS</h2><p>Student registration &amp; accounting system</p></div><span class="featured-number">01 / 04</span></div>
+          </article>
+        </section>
+
+        <section class="product-section" id="featured-systems" aria-labelledby="systems-title">
+          <div class="product-section-heading">
+            <div><span class="section-kicker">Selected systems</span><h2 id="systems-title">Built around your workflow.</h2></div>
+            <p>Explore software created for education, finance, and business operations.</p>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="5" y="6" width="22" height="20" rx="3"/><path d="M10 12h12M10 17h7m-7 5h12M9 3v6m14-6v6"/></svg></div>
+              <div class="product-card-copy"><span class="product-index">01 / EDUCATION</span><h3>SARIAS</h3><p>Student Automated Registration Information and Accounting System for Isabela State University.</p></div>
+              <span class="product-arrow" aria-hidden="true">↗</span>
+            </article>
+
+            <article class="product-card">
+              <div class="product-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="19" rx="3"/><circle cx="12" cy="14" r="3"/><path d="M8 22c.8-2.2 2.1-3.2 4-3.2s3.2 1 4 3.2m3-8h4m-4 5h4"/></svg></div>
+              <div class="product-card-copy"><span class="product-index">02 / PEOPLE</span><h3>HR Management &amp; Payroll</h3><p>Human resource management and payroll system for Rural Bank of Cauayan.</p></div>
+              <span class="product-arrow" aria-hidden="true">↗</span>
+            </article>
+
+            <article class="product-card">
+              <div class="product-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="7" y="5" width="18" height="23" rx="3"/><path d="M12 10h8m-8 5h8m-8 5h4m5 3 2 2 4-5"/></svg></div>
+              <div class="product-card-copy"><span class="product-index">03 / OPERATIONS</span><h3>Attendance Monitoring</h3><p>Attendance systems developed for Isabela State University campuses.</p></div>
+              <span class="product-arrow" aria-hidden="true">↗</span>
+            </article>
+
+            <article class="product-card">
+              <div class="product-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 11h24v16H4zM7 11l2-6h14l2 6M10 16h12m-10 4h8m-6 4h4"/><circle cx="24" cy="23" r="4"/></svg></div>
+              <div class="product-card-copy"><span class="product-index">04 / BUSINESS</span><h3>Sales &amp; Inventory</h3><p>Inventory and sales systems built for RJU Hardware and Tech Buddy Cauayan.</p></div>
+              <span class="product-arrow" aria-hidden="true">↗</span>
+            </article>
+          </div>
+        </section>
+
+        <aside class="products-contact">
+          <div><h2>Have a workflow in mind?</h2><p>Let’s talk about a system designed for the way your organization works.</p></div>
+          <a href="contract.html">Start a conversation <span aria-hidden="true">→</span></a>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>try { if (sessionStorage.getItem("gtechnology-loader-seen") === "1") document.documentElement.classList.add("site-loader-seen"); } catch (_error) {}</script>
+    <meta name="theme-color" content="#151515" />
+    <title>Services | G Technology</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+      :root {
+        --bg: #f3f3f1;
+        --text: #111;
+        --muted: rgba(17, 17, 17, 0.72);
+        --green: #138457;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-height: 100%;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Manrope', 'Segoe UI', sans-serif;
+      }
+
+      .topbar {
+        position: fixed;
+        z-index: 10000;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        min-height: 90px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 0 16px 0 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+        background: linear-gradient(105deg, #151515 0%, #1b1b1b 55%, #111 100%);
+        color: #f7f7f7;
+      }
+
+      .brand {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 12px;
+        color: #f7f7f7;
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .brand-mark {
+        display: block;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+      }
+
+      .nav {
+        display: flex;
+        flex: 1;
+        min-width: 0;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(22px, 2vw, 34px);
+        font-size: clamp(0.9rem, 1.15vw, 1.375rem);
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .nav a {
+        position: relative;
+        overflow: hidden;
+        padding: 11px 12px;
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.88);
+        text-decoration: none;
+        outline: none;
+        transition:
+          color 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+          box-shadow 0.2s ease,
+          transform 0.25s ease;
+      }
+
+      .nav a::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        border-radius: inherit;
+        background: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0 7 C25 0 25 14 50 7 S75 0 100 7 V12 H0Z' fill='%23fff'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        background-size: 100px 12px;
+        transform: translateY(100%);
+        transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .nav a > span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .nav a:hover::before,
+      .nav a:focus-visible::before,
+      .nav a[aria-current="page"]::before {
+        transform: translateY(0);
+      }
+
+      .nav a:hover::before,
+      .nav a:focus-visible::before {
+        animation: menu-wave 2s linear infinite;
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible,
+      .nav a[aria-current="page"] {
+        color: #111;
+        box-shadow: 0 3px 13px rgba(255, 255, 255, 0.35);
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        transform: translateY(-4px);
+      }
+
+      @keyframes menu-wave {
+        to {
+          background-position: 100px 0;
+        }
+      }
+
+      .facebook {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        flex: 0 0 auto;
+        width: 52px;
+        height: 52px;
+        place-items: center;
+        overflow: hidden;
+        border-radius: 50%;
+        background: #1019ed;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.25s ease, box-shadow 0.2s ease;
+      }
+
+      .facebook::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        border-radius: inherit;
+        background: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0 7 C25 0 25 14 50 7 S75 0 100 7 V12 H0Z' fill='%23fff'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        background-size: 100px 12px;
+        transform: translateY(100%);
+        transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        pointer-events: none;
+      }
+
+      .facebook:hover::before,
+      .facebook:focus-visible::before {
+        transform: translateY(0);
+        animation: menu-wave 2s linear infinite;
+      }
+
+      .facebook:hover,
+      .facebook:focus-visible {
+        transform: translateY(-4px);
+        box-shadow: 0 3px 13px rgba(255, 255, 255, 0.35);
+      }
+
+      .facebook > span {
+        position: relative;
+        z-index: 1;
+        pointer-events: none;
+        display: grid;
+        width: 33px;
+        height: 33px;
+        place-items: center;
+        color: #fff;
+        font-size: 2.1rem;
+        font-weight: 800;
+        line-height: 1;
+        transform: translateY(2px);
+        transition: color 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .facebook:hover > span,
+      .facebook:focus-visible > span {
+        color: #1877f2;
+      }
+
+      main {
+        padding: 90px max(24px, 7vw) 0;
+      }
+
+      .intro {
+        max-width: 940px;
+        margin: 0 auto 52px;
+        padding-top: 75px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--green);
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.8rem, 6.5vw, 5.7rem);
+        font-family: 'Manrope', 'Segoe UI', sans-serif;
+        font-weight: 800;
+        line-height: 1.02;
+        letter-spacing: -0.055em;
+      }
+
+      .intro p {
+        max-width: 660px;
+        margin: 20px auto 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.6vw, 1.2rem);
+        line-height: 1.7;
+      }
+
+      .services-title {
+        margin: 56px auto 42px;
+        color: #f4f7fa;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.6rem, 4.5vw, 3.7rem);
+        font-weight: 700;
+        letter-spacing: normal;
+        line-height: 1.1;
+        text-align: center;
+      }
+
+      .services-title::after {
+        content: "";
+        display: block;
+        width: 68px;
+        height: 3px;
+        margin: 16px auto 0;
+        border-radius: 999px;
+        background: #38bd83;
+        box-shadow: 0 0 16px rgba(56, 189, 131, .38);
+      }
+
+      .service-grid {
+        display: grid;
+        width: min(1480px, 100%);
+        margin: 0 auto;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 42px 30px;
+      }
+
+      .site-page main .service-card {
+        min-height: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        color: #f4f7fa;
+        transition: transform .25s ease;
+      }
+
+      .site-page main .service-card:hover {
+        transform: translateY(-4px);
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .service-icon-tile {
+        width: 82px;
+        height: 82px;
+        margin: 0 0 22px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(201, 239, 230, .16);
+        border-radius: 20px;
+        background: linear-gradient(145deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .045));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 12px 28px rgba(0, 0, 0, .12);
+        -webkit-backdrop-filter: blur(12px) saturate(135%);
+        backdrop-filter: blur(12px) saturate(135%);
+        transition: border-color .25s ease, background .25s ease, transform .25s ease;
+      }
+
+      .service-card:hover .service-icon-tile {
+        transform: translateY(-2px);
+        border-color: rgba(103, 220, 164, .48);
+        background: rgba(24, 132, 87, .18);
+      }
+
+      .service-icon {
+        display: block;
+        width: 42px;
+        height: 42px;
+        margin: 0;
+        fill: none;
+        stroke: #74dfad;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      .site-page main .service-card h2 {
+        margin: 0 0 10px;
+        color: #f4f7fa;
+        font-size: clamp(1.1rem, 1.4vw, 1.38rem);
+        font-weight: 700;
+        letter-spacing: -.025em;
+        line-height: 1.3;
+      }
+
+      .site-page main .service-card p {
+        margin: 0;
+        color: rgba(224, 234, 240, .76);
+        font-size: .93rem;
+        line-height: 1.65;
+      }
+
+      .also-offer {
+        width: 100vw;
+        margin: 56px 0 0 calc(50% - 50vw);
+        padding: clamp(48px, 5vw, 68px) max(24px, 7vw) 72px;
+        background: transparent;
+        color: #f4fbf7;
+        text-align: center;
+      }
+
+      .also-offer h2 {
+        margin: 0 0 30px;
+        color: #f4fbf7;
+        font-size: clamp(1.7rem, 2.6vw, 2.35rem);
+        font-weight: 650;
+        letter-spacing: -.025em;
+      }
+
+      .also-offer h2::after {
+        content: "";
+        display: block;
+        width: 42px;
+        height: 2px;
+        margin: 12px auto 0;
+        border-radius: 99px;
+        background: #52ce91;
+      }
+
+      .also-offer-list {
+        display: grid;
+        width: min(1260px, 100%);
+        margin: 0 auto;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .offer-item {
+        position: relative;
+        min-width: 0;
+        min-height: 176px;
+        padding: 26px 22px;
+        overflow: hidden;
+        border: 1px solid rgba(212, 238, 231, .14);
+        border-radius: 16px;
+        background: linear-gradient(145deg, rgba(255, 255, 255, .085), rgba(255, 255, 255, .035));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+        -webkit-backdrop-filter: blur(14px) saturate(135%);
+        backdrop-filter: blur(14px) saturate(135%);
+        transition: transform .28s ease, border-color .28s ease, background .28s ease, box-shadow .28s ease;
+      }
+
+      .offer-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 18%;
+        width: 64%;
+        height: 2px;
+        border-radius: 0 0 99px 99px;
+        background: #52ce91;
+        opacity: 0;
+        transform: scaleX(.4);
+        transition: opacity .28s ease, transform .28s ease;
+      }
+
+      .offer-item:hover,
+      .offer-item:focus-visible {
+        border-color: rgba(82, 206, 145, .38);
+        background: linear-gradient(145deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .055));
+        box-shadow: 0 16px 34px rgba(0, 0, 0, .16), inset 0 1px 0 rgba(255, 255, 255, .12);
+        transform: translateY(-5px);
+      }
+
+      .offer-item:hover::before,
+      .offer-item:focus-visible::before {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+
+      .offer-item h3 {
+        display: inline-block;
+        margin: 0;
+        color: #f4fbf7;
+        font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+      }
+
+      .offer-item p {
+        display: block;
+        max-width: 340px;
+        margin: 12px auto 0;
+        color: rgba(244, 251, 247, 0.82);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .offer-item:focus-visible {
+        outline: 2px solid rgba(114, 229, 164, .55);
+        outline-offset: 3px;
+      }
+
+      .site-footer {
+        min-height: 52px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #00291f;
+        color: #f4fbf7;
+        font-size: 0.82rem;
+        text-align: center;
+      }
+
+      @media (max-width: 980px) {
+        .topbar {
+          gap: 18px;
+        }
+
+        .nav {
+          gap: 16px;
+          font-size: 0.9rem;
+        }
+
+        .service-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 14px;
+        }
+
+        .also-offer {
+          padding-right: 24px;
+          padding-left: 24px;
+        }
+
+      }
+
+      @media (max-width: 760px) {
+        .topbar {
+          position: sticky;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding: 12px 16px;
+          gap: 12px;
+        }
+
+        .brand {
+          gap: 7px;
+          font-size: 1rem;
+        }
+
+        .brand-mark {
+          width: 42px;
+          height: 42px;
+        }
+
+        .facebook {
+          width: 42px;
+          height: 42px;
+        }
+
+        .nav {
+          order: 3;
+          width: 100%;
+          flex: 0 0 100%;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 10px 20px;
+          padding: 6px 0 2px;
+          font-size: 0.82rem;
+        }
+
+        main {
+          padding: 28px 18px 0;
+        }
+
+        .intro {
+          margin-bottom: 32px;
+          padding-top: 48px;
+        }
+
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .also-offer {
+          padding: 40px 22px;
+        }
+
+        .also-offer h2 {
+          margin-bottom: 24px;
+        }
+
+        .also-offer-list {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .offer-item {
+          min-height: 0;
+          padding: 22px 18px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        .nav a:hover::before,
+        .nav a:focus-visible::before {
+          animation: none;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+          transform: none;
+        }
+
+        .facebook,
+        .facebook::before,
+        .facebook > span {
+          transition: none;
+        }
+
+        .facebook:hover,
+        .facebook:focus-visible {
+          transform: none;
+        }
+
+        .facebook:hover::before,
+        .facebook:focus-visible::before {
+          animation: none;
+        }
+      }
+      .topbar {
+        min-height: 80px;
+        gap: clamp(12px, 2vw, 28px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.38);
+        box-shadow: 0 8px 24px rgba(20, 30, 25, 0.06);
+        -webkit-backdrop-filter: blur(18px) saturate(150%);
+        backdrop-filter: blur(18px) saturate(150%);
+        color: var(--text);
+      }
+
+      .brand {
+        color: var(--text);
+      }
+
+      .nav {
+        flex: 0 1 auto;
+        gap: 0;
+        max-width: calc(100% - 180px);
+        overflow-x: auto;
+        padding: 0 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.82);
+        background: rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 24px rgba(31, 80, 55, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+        -webkit-backdrop-filter: blur(16px) saturate(160%);
+        backdrop-filter: blur(16px) saturate(160%);
+        font-size: 0.875rem;
+        letter-spacing: 0;
+        text-transform: none;
+        scrollbar-width: none;
+      }
+
+      .nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav a {
+        flex: 0 0 auto;
+        padding: 12px 11px;
+        border-radius: 999px;
+        color: #111;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .nav a::before {
+        display: none;
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        color: #111;
+        background: rgba(0, 0, 0, 0.06);
+        box-shadow: none;
+        transform: none;
+      }
+
+      .nav a:focus-visible {
+        outline: 2px solid #245d40;
+        outline-offset: 2px;
+      }
+
+      .nav a[aria-current="page"] {
+        background: rgba(255, 255, 255, 0.46);
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.75);
+      }
+
+      html.has-scroll-reveal [data-scroll-reveal] {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 600ms ease, transform 600ms cubic-bezier(.2, .8, .2, 1);
+      }
+
+      html.has-scroll-reveal [data-scroll-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .service-card[data-scroll-reveal]:nth-child(2) { transition-delay: 70ms; }
+      .service-card[data-scroll-reveal]:nth-child(3) { transition-delay: 140ms; }
+      .service-card[data-scroll-reveal]:nth-child(4) { transition-delay: 210ms; }
+      .service-card[data-scroll-reveal]:nth-child(5) { transition-delay: 280ms; }
+      .service-card[data-scroll-reveal]:nth-child(6) { transition-delay: 350ms; }
+      .service-card[data-scroll-reveal]:nth-child(7) { transition-delay: 420ms; }
+      .service-card[data-scroll-reveal]:nth-child(8) { transition-delay: 490ms; }
+
+      @media (prefers-reduced-motion: reduce) {
+        html.has-scroll-reveal [data-scroll-reveal] {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .topbar {
+          min-height: 0;
+        }
+
+        .nav {
+          flex: 0 0 100%;
+          max-width: 100%;
+          justify-content: flex-start;
+          flex-wrap: nowrap;
+          gap: 0;
+          padding: 0 8px;
+          font-size: 0.82rem;
+        }
+
+        .nav a {
+          padding: 10px 11px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="assets/navigation.css" />
+    <link rel="stylesheet" href="assets/site-loader.css" />
+    <script src="assets/navigation.js" defer></script>
+    <script src="assets/site-loader.js" defer></script>
+  </head>
+  <body class="site-page">
+    <div class="site-loader" id="site-loader" role="status" aria-label="Loading G Technology">
+      <div class="site-loader-content">
+        <div class="site-loader-mark" aria-hidden="true">
+          <img class="site-loader-logo" src="assets/gtechnology-logo.png" alt="" />
+        </div>
+        <span class="site-loader-label">Loading<span></span><span></span><span></span></span>
+      </div>
+    </div>
+    <header class="topbar">
+      <nav class="nav nav-left" aria-label="Main navigation">
+        <a href="home.html"><span>Home</span></a>
+        <a href="services.html" aria-current="page"><span>Services</span></a>
+        <a href="clients.html"><span>Clients</span></a>
+      </nav>
+
+      <a class="brand" href="home.html" aria-label="G Technology home">
+        <img class="brand-mark" src="assets/gtechnology-logo.png" alt="" />
+        <span>G TECHNOLOGY</span>
+      </a>
+
+      <nav class="nav nav-right" aria-label="More navigation">
+        <a href="team.html"><span>Team</span></a>
+        <a href="contract.html"><span>Contact</span></a>
+        <a class="facebook" href="https://www.facebook.com/profile.php?id=100045189956593" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook profile"><span class="facebook-icon" aria-hidden="true"><span class="facebook-glyph">f</span><span class="facebook-glyph facebook-glyph--incoming">f</span></span><span class="cta-label" aria-hidden="true"><span class="cta-label-text">Facebook</span><span class="cta-label-text cta-label-text--incoming">Facebook</span></span></a>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="services-title" data-scroll-reveal>SERVICES</h1>
+      <section class="service-grid" aria-label="Our services" data-scroll-reveal>
+        <article class="service-card" data-scroll-reveal>
+          <div class="service-icon-tile"><svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="8" width="36" height="29" rx="4"/><path d="m17 19-5 4 5 4m14-8 5 4-5 4m-4-10-4 12M18 42h12m-6-5v5"/></svg></div>
+          <h2>System Development</h2>
+          <p>Develop system software tailored based on the client’s business flow.</p>
+        </article>
+        <article class="service-card" data-scroll-reveal>
+          <div class="service-icon-tile"><svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="7" width="38" height="34" rx="4"/><path d="M5 15h38m-32-4h.1m5 0h.1m5 0h.1M15 23l-4 4 4 4m18-8 4 4-4 4m-7-7-3 6"/></svg></div>
+          <h2>Website Development</h2>
+          <p>We develop secure and unbreachable static and dynamic websites for marketing and web applications.</p>
+        </article>
+        <article class="service-card" data-scroll-reveal>
+          <div class="service-icon-tile"><svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="7" width="34" height="11" rx="3"/><rect x="7" y="21" width="34" height="11" rx="3"/><path d="M13 12h.1m5 0h.1m-5 14h.1m5 0h.1M11 38h26m-13-6v6"/></svg></div>
+          <h2>Server Setup &amp; Configuration</h2>
+          <p>Build and configure cloud and physical servers with strong defenses against cyberattacks.</p>
+        </article>
+        <article class="service-card" data-scroll-reveal>
+          <div class="service-icon-tile"><svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="10" r="4"/><circle cx="10" cy="35" r="4"/><circle cx="38" cy="35" r="4"/><circle cx="24" cy="27" r="4"/><path d="M22 14 12 31m14-17 10 17m-18 4h12m-6-4V14"/></svg></div>
+          <h2>Network Setup and Configuration</h2>
+          <p>Professional network configuration for reliable, seamless communication.</p>
+        </article>
+        <article class="service-card" data-scroll-reveal>
+          <div class="service-icon-tile"><svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 39 11v11c0 10-6 16-15 21C15 38 9 32 9 22V11l15-6Z"/><rect x="18" y="21" width="12" height="10" rx="2"/><path d="M21 21v-3a3 3 0 0 1 6 0v3"/></svg></div>
+          <h2>VPN Setup and Configuration</h2>
+          <p>Configure a virtual private network to strengthen data privacy and protect your business online.</p>
+        </article>
+        <article class="service-card" data-scroll-reveal>
+          <div class="service-icon-tile"><svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="7" width="38" height="27" rx="3"/><path d="M17 41h14m-7-7v7m-12-5h24m7-21-8 8-5-5 8-8 5 5Zm-13 7-3 3"/></svg></div>
+          <h2>PC Repair and Installation</h2>
+          <p>Identify, troubleshoot, and resolve faults and other computer issues.</p>
+        </article>
+        <article class="service-card" data-scroll-reveal>
+          <div class="service-icon-tile"><svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M7 17h8l6-6h12a8 8 0 0 1 8 8v11H7V17Z"/><circle cx="28" cy="22" r="6"/><path d="M13 31v5m24-5v5M7 37h34"/></svg></div>
+          <h2>CCTV Installation</h2>
+          <p>Install CCTV systems for homes and businesses to support surveillance and security.</p>
+        </article>
+        <article class="service-card" data-scroll-reveal>
+          <div class="service-icon-tile"><svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 40 11v11c0 10-6 16-16 21C14 38 8 32 8 22V11l16-6Z"/><path d="m17 24 5 5 10-11"/></svg></div>
+          <h2>Firewall and Security Setup and Configuration</h2>
+          <p>Set up premium security and defense features to help protect your systems from cyberattacks.</p>
+        </article>
+      </section>
+
+      <section class="also-offer" aria-labelledby="also-offer-title" data-scroll-reveal>
+        <h2 id="also-offer-title" data-scroll-reveal>We Also Offer:</h2>
+        <div class="also-offer-list">
+          <article class="offer-item" tabindex="0" data-scroll-reveal>
+            <h3>Bookkeeping</h3>
+            <p>Keep your financial records organized with accurate tracking of income, expenses, and transactions.</p>
+          </article>
+          <article class="offer-item" tabindex="0" data-scroll-reveal>
+            <h3>Tax Consultation</h3>
+            <p>Get help understanding tax requirements, preparing filings, and planning for your tax obligations.</p>
+          </article>
+          <article class="offer-item" tabindex="0" data-scroll-reveal>
+            <h3>Audits</h3>
+            <p>Review financial records for accuracy and compliance, and get a clearer picture of your accounts.</p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+    <footer class="site-footer" data-scroll-reveal>
+      <span>Copyright GTechnology. All Rights Reserved | Designed by GTechnology</span>
+    </footer>
+    <script>
+      const serviceRevealItems = document.querySelectorAll("[data-scroll-reveal]");
+      const serviceReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if ("IntersectionObserver" in window && !serviceReducedMotion) {
+        document.documentElement.classList.add("has-scroll-reveal");
+        const serviceRevealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle("is-visible", entry.isIntersecting);
+          });
+        }, { threshold: 0.05, rootMargin: "0px" });
+
+        serviceRevealItems.forEach((item) => serviceRevealObserver.observe(item));
+      }
+    </script>
+  </body>
+</html>

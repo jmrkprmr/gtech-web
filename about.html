@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#151515" />
+    <title>About | G Technology</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+      :root {
+        --bg: #f3f3f1;
+        --text: #111;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Manrope', 'Segoe UI', sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        padding-top: 90px;
+      }
+
+      .topbar {
+        position: fixed;
+        z-index: 10000;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        min-height: 90px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 0 16px 0 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+        background: linear-gradient(105deg, #151515 0%, #1b1b1b 55%, #111 100%);
+        color: #f7f7f7;
+      }
+
+      .brand {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 12px;
+        color: #f7f7f7;
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .brand-mark {
+        display: block;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+      }
+
+      .nav {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(22px, 2vw, 34px);
+        font-size: clamp(0.9rem, 1.15vw, 1.375rem);
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .nav a {
+        position: relative;
+        overflow: hidden;
+        padding: 11px 12px;
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.88);
+        text-decoration: none;
+        outline: none;
+        transition:
+          color 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+          box-shadow 0.2s ease,
+          transform 0.25s ease;
+      }
+
+      .nav a::before {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        border-radius: inherit;
+        background: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0 7 C25 0 25 14 50 7 S75 0 100 7 V12 H0Z' fill='%23fff'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        background-size: 100px 12px;
+        content: "";
+        transform: translateY(100%);
+        transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .nav a > span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .nav a:hover::before,
+      .nav a:focus-visible::before {
+        transform: translateY(0);
+        animation: menu-wave 2s linear infinite;
+      }
+
+      .nav a[aria-current="page"]::before {
+        transform: translateY(0);
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible,
+      .nav a[aria-current="page"] {
+        color: #111;
+        box-shadow: 0 3px 13px rgba(255, 255, 255, 0.35);
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        transform: translateY(-4px);
+      }
+
+      @keyframes menu-wave {
+        to {
+          background-position: 100px 0;
+        }
+      }
+
+      .cta-top {
+        position: relative;
+        display: inline-flex;
+        flex: 0 0 auto;
+        width: 52px;
+        height: 52px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border: none;
+        border-radius: 999px;
+        background: #1019ed;
+        color: #fff;
+        text-decoration: none;
+        transition: transform 0.25s ease, box-shadow 0.2s ease;
+      }
+
+      .cta-top::before {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        border-radius: inherit;
+        background: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0 7 C25 0 25 14 50 7 S75 0 100 7 V12 H0Z' fill='%23fff'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        background-size: 100px 12px;
+        content: "";
+        transform: translateY(100%);
+        transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .cta-top:hover::before,
+      .cta-top:focus-visible::before {
+        transform: translateY(0);
+        animation: menu-wave 2s linear infinite;
+      }
+
+      .cta-top:hover,
+      .cta-top:focus-visible {
+        transform: translateY(-4px);
+        box-shadow: 0 3px 13px rgba(255, 255, 255, 0.35);
+      }
+
+      .facebook-icon {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        width: 33px;
+        height: 33px;
+        place-items: center;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 2.1rem;
+        font-weight: 800;
+        line-height: 1;
+        text-transform: lowercase;
+        transform: translateY(2px);
+        transition: color 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .cta-top:hover .facebook-icon,
+      .cta-top:focus-visible .facebook-icon {
+        color: #1877f2;
+      }
+
+      @media (max-width: 980px) {
+        .topbar {
+          gap: 18px;
+        }
+
+        .nav {
+          gap: 16px;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          padding-top: 0;
+        }
+
+        .topbar {
+          position: sticky;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding: 12px 16px;
+          gap: 12px;
+        }
+
+        .brand {
+          gap: 7px;
+          font-size: 1rem;
+        }
+
+        .brand-mark {
+          width: 42px;
+          height: 42px;
+        }
+
+        .cta-top {
+          width: 42px;
+          height: 42px;
+        }
+
+        .facebook-icon {
+          width: 29px;
+          height: 29px;
+          font-size: 1.4rem;
+        }
+
+        .nav {
+          order: 3;
+          width: 100%;
+          flex: 0 0 100%;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 10px 20px;
+          padding: 6px 0 2px;
+          font-size: 0.82rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .nav a,
+        .nav a::before,
+        .cta-top,
+        .cta-top::before,
+        .facebook-icon {
+          transition: none;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible,
+        .cta-top:hover,
+        .cta-top:focus-visible {
+          transform: none;
+        }
+
+        .nav a:hover::before,
+        .nav a:focus-visible::before,
+        .cta-top:hover::before,
+        .cta-top:focus-visible::before {
+          animation: none;
+        }
+      }
+      .topbar {
+        min-height: 80px;
+        gap: clamp(12px, 2vw, 28px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.38);
+        box-shadow: 0 8px 24px rgba(20, 30, 25, 0.06);
+        -webkit-backdrop-filter: blur(18px) saturate(150%);
+        backdrop-filter: blur(18px) saturate(150%);
+        color: var(--text);
+      }
+
+      .brand {
+        color: var(--text);
+      }
+
+      .nav {
+        flex: 0 1 auto;
+        gap: 0;
+        max-width: calc(100% - 180px);
+        overflow-x: auto;
+        padding: 0 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.82);
+        background: rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 24px rgba(31, 80, 55, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+        -webkit-backdrop-filter: blur(16px) saturate(160%);
+        backdrop-filter: blur(16px) saturate(160%);
+        font-size: 0.875rem;
+        letter-spacing: 0;
+        text-transform: none;
+        scrollbar-width: none;
+      }
+
+      .nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav a {
+        flex: 0 0 auto;
+        padding: 12px 11px;
+        border-radius: 999px;
+        color: #111;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .nav a::before {
+        display: none;
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        color: #111;
+        background: rgba(0, 0, 0, 0.06);
+        box-shadow: none;
+        transform: none;
+      }
+
+      .nav a:focus-visible {
+        outline: 2px solid #245d40;
+        outline-offset: 2px;
+      }
+
+      .nav a[aria-current="page"] {
+        background: rgba(255, 255, 255, 0.46);
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.75);
+      }
+
+      @media (max-width: 760px) {
+        .topbar {
+          min-height: 0;
+        }
+
+        .nav {
+          flex: 0 0 100%;
+          max-width: 100%;
+          justify-content: flex-start;
+          flex-wrap: nowrap;
+          gap: 0;
+          padding: 0 8px;
+          font-size: 0.82rem;
+        }
+
+        .nav a {
+          padding: 10px 11px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="assets/navigation.css" />
+    <script src="assets/navigation.js" defer></script>
+  </head>
+  <body class="site-page">
+    <div class="page">
+      <header class="topbar">
+        <nav class="nav nav-left" aria-label="Main navigation">
+          <a href="home.html"><span>Home</span></a>
+          <a href="services.html"><span>Services</span></a>
+          <a href="clients.html"><span>Clients</span></a>
+        </nav>
+
+        <a class="brand" href="home.html" aria-label="G Technology home">
+          <img class="brand-mark" src="assets/gtechnology-logo.png" alt="" />
+          <span>G TECHNOLOGY</span>
+        </a>
+
+        <nav class="nav nav-right" aria-label="More navigation">
+          <a href="team.html"><span>Team</span></a>
+          <a href="contract.html"><span>Contact</span></a>
+          <a class="facebook" href="https://www.facebook.com/profile.php?id=100045189956593" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook profile"><span class="facebook-icon" aria-hidden="true"><span class="facebook-glyph">f</span><span class="facebook-glyph facebook-glyph--incoming">f</span></span><span class="cta-label" aria-hidden="true"><span class="cta-label-text">Facebook</span><span class="cta-label-text cta-label-text--incoming">Facebook</span></span></a>
+        </nav>
+      </header>
+      <main aria-label="About"></main>
+    </div>
+  </body>
+</html>
